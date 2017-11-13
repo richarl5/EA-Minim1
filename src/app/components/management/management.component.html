@@ -1,0 +1,39 @@
+<form class="form-welcome">
+  <ul class="nav nav-tabs">
+    <li class="nav-item" (click)="changeShowStatus()">
+      <a class="nav-link active" data-toggle="tab">Student</a>
+    </li>
+    <li class="nav-item" (click)="changeShowStatus()">
+      <a class="nav-link active">Subject</a>
+    </li>
+  </ul>
+
+  <div class="jumbotron">
+    <div class="form-group login-inputs" *ngIf="showStudent">
+      <div class="input-form">
+        <label class="col-form-label">Name</label>
+        <input type="text" class="form-control" #name />
+        <label class="col-form-label">Age</label>
+        <input type="text" class="form-control" #age/>
+      </div>
+      <button type="button" (click)="studentSubmit(name.value, age.value)" class="btn btn-success">Add Student</button>
+      <button type="button" (click)="studentUpdate(name.value, age.value)" class="btn btn-info">Update Student</button>
+      <button type="button" (click)="studentDelete(name.value, age.value)" class="btn btn-danger">Delete Student</button>
+    </div>
+
+    <div class="form-group login-inputs" *ngIf="showSubject">
+      <div class="input-form">
+        <label class="col-form-label">Name</label>
+        <input type="text" class="form-control" #name />
+        <label class="col-form-label">Studies</label>
+        <input type="text" class="form-control" #course />
+        <label class="col-form-label">Semester</label>
+        <input type="text" class="form-control" #semester />
+      </div>
+      <button type="button" (click)="subjectSubmit(name.value, course.value, semester.value)" class="btn btn-success">Add Subject</button>
+    </div>
+  </div>
+</form>
+
+
+

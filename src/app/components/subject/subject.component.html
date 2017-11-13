@@ -1,0 +1,52 @@
+<div class="jumbotron">
+  <form class="form-horizontal">
+    <div class="input-form">
+      <label class="col-form-label">Assignatura</label>
+      <input type="text" class="form-control" #subject />
+      <label class="col-form-label">Estudiant</label>
+      <input type="text" class="form-control" #student/>
+      <p></p>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="button" (click)="addSubject(subject.value, student.value)" class="btn btn-default">Matricular</button>
+        <p></p>
+        <div class="input-form">
+          <label class="col-form-label">Buscador</label>
+          <input type="text" class="form-control" #data/>
+          <p></p>
+        </div>
+        <div class="container">
+          <button type="button" (click)="allSubject()" class="btn btn-default">Totes Assignatures</button>
+          <button type="button" (click)="nameSearch(data.value)" class="btn btn-default">Nom</button>
+          <button type="button" (click)="studySearch(data.value)" class="btn btn-default">Estudis</button>
+          <button type="button" (click)="semesterSearch(data.value)" class="btn btn-default">Semester</button>
+          <button type="button" (click)="sortedSearch()" class="btn btn-default">Ordenat nom</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <h2>Information</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Studies</th>
+        <th>Semester</th>
+        <th>Students</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let subject of subjects">
+        <td>{{ subject['name'] }}</td>
+        <th>{{ subject['studies'] }}</th>
+        <th>{{ subject['semester'] }}</th>
+        <ng-container *ngFor="let student of subject['students']">
+          <th>{{ student['name']}} - {{student['age']}}</th>
+        </ng-container>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
