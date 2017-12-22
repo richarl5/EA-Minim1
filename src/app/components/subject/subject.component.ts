@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import "rxjs/add/operator/map";
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from '@angular/common/http';
-import {allSettled} from "q";
 
 @Component({
   selector: 'app-student',
