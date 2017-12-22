@@ -32,8 +32,8 @@ export class ManagementComponent implements OnInit {
   }
 
 
-  subjectSubmit(name, course, semester) {
-    this.http.post('http://localhost:3001/api/subject/add', JSON.stringify({ name: name, course: course, semester: semester}), {headers: new HttpHeaders().set('Content-Type', 'application/json')})
+  subjectSubmit(name, studies, semester) {
+    this.http.post('http://localhost:3001/api/subject/add', JSON.stringify({ name: name, studies: studies, semester: semester}), {headers: new HttpHeaders().set('Content-Type', 'application/json')})
       .subscribe(data => {alert("Subject added success")}, (err) => {alert("Subject already exists")});
   }
 
